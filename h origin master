@@ -1,0 +1,184 @@
+[33mcommit 31fc66960008143f01f7feea32618efb0729f8a2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Sanzhar Kamidenov <sanzhar.kamidenov@gmail.com>
+Date:   Wed Jan 8 23:44:28 2025 +0500
+
+    Added database backup
+
+A	file_storage_backup.sql
+
+[33mcommit 47c5340b03400429fce1141c74079534b55e7791[m
+Author: Sanzhar Kamidenov <sanzhar.kamidenov@gmail.com>
+Date:   Wed Jan 8 23:39:20 2025 +0500
+
+    Updated one
+
+M	app/Http/Controllers/FileController.php
+M	resources/js/components/FileForm.vue
+M	resources/js/components/FileList.vue
+D	resources/js/metisMenu.min.js
+M	routes/api.php
+
+[33mcommit 733a80eae6332cdb604eb88275ef655c872821a1[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Sanzhar Kamidenov <sanzhar.kamidenov@gmail.com>
+Date:   Wed Jan 8 10:18:07 2025 +0500
+
+    Initial commit
+
+A	.editorconfig
+A	.env.example
+A	.gitattributes
+A	.gitignore
+A	README.md
+A	app/Http/Controllers/Controller.php
+A	app/Http/Controllers/FileController.php
+A	app/Models/File.php
+A	app/Models/User.php
+A	app/Providers/AppServiceProvider.php
+A	artisan
+A	bootstrap/app.php
+A	bootstrap/cache/.gitignore
+A	bootstrap/providers.php
+A	composer.json
+A	composer.lock
+A	config/app.php
+A	config/auth.php
+A	config/cache.php
+A	config/database.php
+A	config/filesystems.php
+A	config/logging.php
+A	config/mail.php
+A	config/queue.php
+A	config/services.php
+A	config/session.php
+A	database/.gitignore
+A	database/factories/UserFactory.php
+A	database/migrations/0001_01_01_000000_create_users_table.php
+A	database/migrations/0001_01_01_000001_create_cache_table.php
+A	database/migrations/0001_01_01_000002_create_jobs_table.php
+A	database/migrations/2025_01_05_094515_create_files_table.php
+A	database/migrations/2025_01_05_162253_remove_thumbnail_path_from_files_table.php
+A	database/migrations/2025_01_06_180504_add_file_types_to_files_table.php
+A	database/seeders/DatabaseSeeder.php
+A	package-lock.json
+A	package.json
+A	phpunit.xml
+A	postcss.config.js
+A	public/.htaccess
+A	public/assets/images/bg-auth-overlay.png
+A	public/assets/images/brands/bitbucket.png
+A	public/assets/images/brands/dribbble.png
+A	public/assets/images/brands/dropbox.png
+A	public/assets/images/brands/github.png
+A	public/assets/images/brands/mail_chimp.png
+A	public/assets/images/brands/slack.png
+A	public/assets/images/clients/1.png
+A	public/assets/images/clients/2.png
+A	public/assets/images/clients/3.png
+A	public/assets/images/clients/4.png
+A	public/assets/images/clients/5.png
+A	public/assets/images/clients/6.png
+A	public/assets/images/coming-soon.svg
+A	public/assets/images/companies/adobe-photoshop.svg
+A	public/assets/images/companies/adobe.svg
+A	public/assets/images/companies/airbnb.svg
+A	public/assets/images/companies/amazon.svg
+A	public/assets/images/companies/flutter.svg
+A	public/assets/images/companies/img-1.png
+A	public/assets/images/companies/img-2.png
+A	public/assets/images/companies/img-3.png
+A	public/assets/images/companies/img-4.png
+A	public/assets/images/companies/img-5.png
+A	public/assets/images/companies/img-6.png
+A	public/assets/images/companies/line.svg
+A	public/assets/images/companies/mailchimp.svg
+A	public/assets/images/companies/reddit.svg
+A	public/assets/images/companies/sass.svg
+A	public/assets/images/companies/spotify.svg
+A	public/assets/images/companies/upwork.svg
+A	public/assets/images/companies/wechat.svg
+A	public/assets/images/companies/wordpress.svg
+A	public/assets/images/crypto/bg-ico-hero.jpg
+A	public/assets/images/crypto/blog/img-1.jpg
+A	public/assets/images/crypto/blog/img-2.jpg
+A	public/assets/images/crypto/blog/img-3.jpg
+A	public/assets/images/crypto/features-img/img-1.png
+A	public/assets/images/crypto/features-img/img-2.png
+A	public/assets/images/error-img.png
+A	public/assets/images/favicon.ico
+A	public/assets/images/flags/germany.jpg
+A	public/assets/images/flags/italy.jpg
+A	public/assets/images/flags/russia.jpg
+A	public/assets/images/flags/spain.jpg
+A	public/assets/images/flags/us.jpg
+A	public/assets/images/jobs.png
+A	public/assets/images/layouts/layout-1.jpg
+A	public/assets/images/layouts/layout-2.jpg
+A	public/assets/images/layouts/layout-3.jpg
+A	public/assets/images/layouts/layout-4.jpg
+A	public/assets/images/logo-dark.png
+A	public/assets/images/logo-light.png
+A	public/assets/images/logo-light.svg
+A	public/assets/images/logo.svg
+A	public/assets/images/maintenance.svg
+A	public/assets/images/megamenu-img.png
+A	public/assets/images/product/img-1.png
+A	public/assets/images/product/img-2.png
+A	public/assets/images/product/img-3.png
+A	public/assets/images/product/img-4.png
+A	public/assets/images/product/img-5.png
+A	public/assets/images/product/img-6.png
+A	public/assets/images/product/img-7.png
+A	public/assets/images/product/img-8.png
+A	public/assets/images/profile-img.png
+A	public/assets/images/small/img-1.jpg
+A	public/assets/images/small/img-2.jpg
+A	public/assets/images/small/img-3.jpg
+A	public/assets/images/small/img-4.jpg
+A	public/assets/images/small/img-5.jpg
+A	public/assets/images/small/img-6.jpg
+A	public/assets/images/small/img-7.jpg
+A	public/assets/images/users/avatar-1.jpg
+A	public/assets/images/users/avatar-2.jpg
+A	public/assets/images/users/avatar-3.jpg
+A	public/assets/images/users/avatar-4.jpg
+A	public/assets/images/users/avatar-5.jpg
+A	public/assets/images/users/avatar-6.jpg
+A	public/assets/images/users/avatar-7.jpg
+A	public/assets/images/users/avatar-8.jpg
+A	public/assets/images/users/user-dummy-img.jpg
+A	public/assets/images/verification-img.png
+A	public/favicon.ico
+A	public/images/123.png
+A	public/index.php
+A	public/robots.txt
+A	resources/css/app.css
+A	resources/css/bootstrap.min.css
+A	resources/images/123.png
+A	resources/js/app.js
+A	resources/js/bootstrap.js
+A	resources/js/components/App.vue
+A	resources/js/components/FileForm.vue
+A	resources/js/components/FileList.vue
+A	resources/js/components/Splash.vue
+A	resources/js/i18n.js
+A	resources/js/metisMenu.min.js
+A	resources/js/routes.js
+A	resources/views/index.blade.php
+A	routes/api.php
+A	routes/console.php
+A	routes/web.php
+A	storage/app/.gitignore
+A	storage/app/private/.gitignore
+A	storage/app/public/.gitignore
+A	storage/framework/.gitignore
+A	storage/framework/cache/.gitignore
+A	storage/framework/cache/data/.gitignore
+A	storage/framework/sessions/.gitignore
+A	storage/framework/testing/.gitignore
+A	storage/framework/views/.gitignore
+A	storage/logs/.gitignore
+A	tailwind.config.js
+A	tests/Feature/ExampleTest.php
+A	tests/TestCase.php
+A	tests/Unit/ExampleTest.php
+A	vite.config.js

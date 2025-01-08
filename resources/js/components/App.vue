@@ -167,6 +167,19 @@ export default {
 
 <style scoped>
 
+@media (min-width: 1200px) {
+    body[data-layout=horizontal] .container-fluid, body[data-layout=horizontal] .navbar-header {
+        max-width: 100%;
+    }
+}
+
+.navbar-header {
+margin: 0 !important;
+}
+
+.d-flex {
+    width: 100%;
+}
 
 .btn .bx-menu {
   font-size: 24px;

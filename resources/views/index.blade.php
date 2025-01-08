@@ -14,8 +14,8 @@
 			<link href="https://cdn.devkdt.info/files/sites/1438847699350036/files/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 			<!-- Icons Css -->
 			<link href="https://cdn.devkdt.info/files/sites/1438847699350036/files/icons.min.css" rel="stylesheet" type="text/css" />
-			<!-- App Css-->
-			<link href="https://cdn.devkdt.info/files/sites/1438847699350036/files/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+			<!-- App Css
+			<link href="https://cdn.devkdt.info/files/sites/1438847699350036/files/app.min.css" id="app-style" rel="stylesheet" type="text/css" />-->
 			<!-- App js -->
 			<script src="https://cdn.devkdt.info/files/sites/1438847699350036/files/plugin.js"></script>
 
