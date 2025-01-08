@@ -324,6 +324,9 @@ export default {
     left: 50px;
     position: relative;
 }
+.searchnbuttons {
+    justify-content: center;
+}
 }
 
 @media (max-width: 1000px) {

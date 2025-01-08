@@ -10,6 +10,7 @@
 
       <div
         class="file-drop"
+        v-if="!isEditMode"
         @dragover.prevent="dragging = true"
         @dragleave.prevent="dragging = false"
         @drop.prevent="handleDrop"
@@ -33,7 +34,6 @@
       </div>
 
       <button class="btn btn-success waves-effect waves-light" type="submit" :disabled="uploadProgress > 0">{{ $t('save') }}</button>
-      <button v-if="isEditMode" class="btn btn-danger waves-effect waves-light w-sm" type="button" @click="confirmDelete">{{ $t('delete') }}</button>
     </form>
   </div>
 </template>
@@ -63,6 +63,7 @@ export default {
     handleFileSelect(event) {
       this.file = event.target.files[0];
       this.validateFile();
+      console.log("Selected File:", this.file); // Проверяем файл
     },
     triggerFileInput() {
       this.$refs.fileInput.click();
@@ -76,45 +77,48 @@ export default {
       }
     },
     submitForm() {
-        if (!this.fileName && !this.file) {
-    alert("Вы должны указать имя или выбрать файл.");
+  if (!this.fileName) {
+    alert("Вы должны указать имя.");
     return;
   }
 
-  const formData = new FormData();
-  formData.append("name", this.fileName || "");
-  if (this.file) {
-    formData.append("file", this.file);
+  console.log("File ID:", this.fileId); // Лог ID файла
+  console.log("File Name:", this.fileName); // Лог имени файла
+
+  // Если это режим редактирования, используем PUT для обновления
+  if (this.isEditMode) {
+    axios
+      .put(`/api/files/${this.fileId}`, { name: this.fileName })
+      .then((response) => {
+        console.log("Файл обновлён:", response.data);
+        alert("Имя файла успешно обновлено!");
+        this.$router.push("/home");
+      })
+      .catch((error) => {
+        console.error("Ошибка при обновлении имени файла:", error);
+        alert("Не удалось обновить имя файла.");
+      });
+  } else {
+    // Если это режим создания, сохраняем через POST
+    const formData = new FormData();
+    formData.append("name", this.fileName);
+    if (this.file) {
+      formData.append("file", this.file);
+    }
+
+    axios
+      .post(`/api/files`, formData)
+      .then((response) => {
+        console.log("Файл создан:", response.data);
+        alert("Файл успешно создан!");
+        this.$router.push("/home");
+      })
+      .catch((error) => {
+        console.error("Ошибка при создании файла:", error);
+        alert("Не удалось создать файл.");
+      });
   }
-
-    // Логируем данные для отладки
-  console.log("File ID:", this.fileId); // ID файла
-  console.log("File Name:", this.fileName); // Имя файла
-  for (let [key, value] of formData.entries()) {
-    console.log(`${key}:`, value); // Проверяем содержимое FormData
-  }
-
-      const config = {
-        onUploadProgress: (event) => {
-          this.uploadProgress = Math.round((event.loaded / event.total) * 100);
-        },
-      };
-
-const request = this.isEditMode
-  ? axios.put(`/api/files/${this.fileId}`, formData, config)
-  : axios.post(`/api/files`, formData, config);
-        
-
-      request
-        .then(() => {
-                alert("Файл успешно сохранён!");
-      this.$router.push("/home");
-        })
-        .catch((error) => {
-          console.error("Ошибка при отправке формы:", error);
-          alert("Не удалось загрузить файл. Проверьте подключение или попробуйте снова.");
-        });
-    },
+},
   },
 mounted() {
     if (this.isEditMode) {

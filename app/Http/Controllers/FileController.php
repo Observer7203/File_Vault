@@ -68,50 +68,28 @@ public function store(Request $request)
     return response()->json($newFile, 201);
 }
 
-public function update(Request $request, File $file)
+
+
+public function update(Request $request, $id)
 {
-    $request->validate([
-        'file' => 'nullable|mimes:jpeg,png,jpg,gif,svg,doc,docx,pdf,xls,xlsx,mp3,mp4,avi,mkv,wav,zip,rar|max:8192',
-        'name' => 'nullable|string|max:255',
+    // Ищем файл по ID
+    $file = File::findOrFail($id);
+
+    // Логируем входные данные
+    \Log::info('Request data: ', $request->all());
+
+    // Обновляем только имя файла
+    $file->update([
+        'name' => $request->input('name') ?? $file->name,
     ]);
 
-    if ($request->hasFile('file')) {
-        if (Storage::disk('public')->exists($file->path)) {
-            Storage::disk('public')->delete($file->path);
-        }
-        
-
-        $uploadedFile = $request->file('file');
-        $path = $uploadedFile->store('uploads', 'public');
-
-        $mimeType = $uploadedFile->getMimeType();
-        $isImage = str_contains($mimeType, 'image');
-        $isVideo = str_contains($mimeType, 'video');
-        $isAudio = str_contains($mimeType, 'audio');
-        $isDocument = str_contains($mimeType, 'application') || str_contains($mimeType, 'text');
-
-        $file->update([
-            'name' => $request->input('name') ?? $file->name,
-            'original_name' => $uploadedFile->getClientOriginalName(),
-            'size' => $uploadedFile->getSize(),
-            'extension' => $uploadedFile->getClientOriginalExtension(),
-            'path' => $path,
-            'is_image' => $isImage,
-            'is_video' => $isVideo,
-            'is_audio' => $isAudio,
-            'is_document' => $isDocument,
-        ]);
-    } else {
-        $file->update([
-            'name' => $request->input('name') ?? $file->name,
-        ]);
-    }
-
     return response()->json([
-        'message' => 'File updated successfully.',
+        'message' => 'Имя файла обновлено успешно.',
         'file' => $file,
     ]);
 }
+
+
 
 public function destroy($id)
 {
